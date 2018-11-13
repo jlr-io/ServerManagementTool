@@ -1,0 +1,84 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @server.user_id %>
+</p>
+
+<p>
+  <strong>Approved:</strong>
+  <%= @server.approved %>
+</p>
+
+<p>
+  <strong>Hostname:</strong>
+  <%= @server.hostname %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @server.location %>
+</p>
+
+<p>
+  <strong>Environment:</strong>
+  <%= @server.environment %>
+</p>
+
+<p>
+  <strong>Os requested:</strong>
+  <%= @server.os_requested %>
+</p>
+
+<p>
+  <strong>Disk size:</strong>
+  <%= @server.disk_size %>
+</p>
+
+<p>
+  <strong>Eng team sme contact:</strong>
+  <%= @server.eng_team_sme_contact_id %>
+</p>
+
+<p>
+  <strong>Eng team manager contact:</strong>
+  <%= @server.eng_team_manager_contact_id %>
+</p>
+
+<p>
+  <strong>Application sme:</strong>
+  <%= @server.application_sme_id %>
+</p>
+
+<p>
+  <strong>Application team distro group:</strong>
+  <%= @server.application_team_distro_group %>
+</p>
+
+<p>
+  <strong>Application manager:</strong>
+  <%= @server.application_manager_id %>
+</p>
+
+<p>
+  <strong>Application director:</strong>
+  <%= @server.application_director_id %>
+</p>
+
+<p>
+  <strong>Line of business:</strong>
+  <%= @server.line_of_business %>
+</p>
+
+<p>
+  <strong>Virtual machine:</strong>
+  <%= @server.virtual_machine %>
+</p>
+
+<p>
+  <strong>Asset:</strong>
+  <%= @server.asset %>
+</p>
+
+<%= link_to 'Edit', edit_server_path(@server) %> |
+<%= link_to 'Back', servers_path %>

@@ -1,0 +1,97 @@
+<%= form_with(model: server, local: true) do |form| %>
+  <% if server.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(server.errors.count, "error") %> prohibited this server from being saved:</h2>
+
+      <ul>
+      <% server.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.number_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :approved %>
+    <%= form.check_box :approved %>
+  </div>
+
+  <div class="field">
+    <%= form.label :hostname %>
+    <%= form.text_field :hostname %>
+  </div>
+
+  <div class="field">
+    <%= form.label :location %>
+    <%= form.text_field :location %>
+  </div>
+
+  <div class="field">
+    <%= form.label :environment %>
+    <%= form.text_field :environment %>
+  </div>
+
+  <div class="field">
+    <%= form.label :os_requested %>
+    <%= form.text_field :os_requested %>
+  </div>
+
+  <div class="field">
+    <%= form.label :disk_size %>
+    <%= form.text_field :disk_size %>
+  </div>
+
+  <div class="field">
+    <%= form.label :eng_team_sme_contact_id %>
+    <%= form.number_field :eng_team_sme_contact_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :eng_team_manager_contact_id %>
+    <%= form.number_field :eng_team_manager_contact_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :application_sme_id %>
+    <%= form.number_field :application_sme_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :application_team_distro_group %>
+    <%= form.text_field :application_team_distro_group %>
+  </div>
+
+  <div class="field">
+    <%= form.label :application_manager_id %>
+    <%= form.number_field :application_manager_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :application_director_id %>
+    <%= form.number_field :application_director_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :line_of_business %>
+    <%= form.text_field :line_of_business %>
+  </div>
+
+  <div class="field">
+    <%= form.label :virtual_machine %>
+    <%= form.check_box :virtual_machine %>
+  </div>
+
+  <div class="field">
+    <%= form.label :asset %>
+    <%= form.text_field :asset %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

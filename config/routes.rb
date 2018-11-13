@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :servers
   resources :users
   get '/admin',    to: 'static_pages#admin'
   get '/employee',  to: 'static_pages#employee'
