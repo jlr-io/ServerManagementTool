@@ -1,0 +1,57 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Servers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Approved</th>
+      <th>Hostname</th>
+      <th>Location</th>
+      <th>Environment</th>
+      <th>Os requested</th>
+      <th>Disk size</th>
+      <th>Eng team sme contact</th>
+      <th>Eng team manager contact</th>
+      <th>Application sme</th>
+      <th>Application team distro group</th>
+      <th>Application manager</th>
+      <th>Application director</th>
+      <th>Line of business</th>
+      <th>Virtual machine</th>
+      <th>Asset</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @servers.each do |server| %>
+      <tr>
+        <td><%= server.user_id %></td>
+        <td><%= server.approved %></td>
+        <td><%= server.hostname %></td>
+        <td><%= server.location %></td>
+        <td><%= server.environment %></td>
+        <td><%= server.os_requested %></td>
+        <td><%= server.disk_size %></td>
+        <td><%= server.eng_team_sme_contact_id %></td>
+        <td><%= server.eng_team_manager_contact_id %></td>
+        <td><%= server.application_sme_id %></td>
+        <td><%= server.application_team_distro_group %></td>
+        <td><%= server.application_manager_id %></td>
+        <td><%= server.application_director_id %></td>
+        <td><%= server.line_of_business %></td>
+        <td><%= server.virtual_machine %></td>
+        <td><%= server.asset %></td>
+        <td><%= link_to 'Show', server %></td>
+        <td><%= link_to 'Edit', edit_server_path(server) %></td>
+        <td><%= link_to 'Destroy', server, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Server', new_server_path %>
