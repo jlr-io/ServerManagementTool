@@ -1,0 +1,186 @@
+<p id="notice"><%= notice %></p>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, chrome=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ChartJS Test</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src"https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+</head>
+<body>
+
+  <div class="jumbotron">
+      <div class="container">
+        <h1>Aetna Server Tool Dashboard!</h1>
+        <p>Current test html for the Dashboard</p>
+        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+        <p id="notice"><%= notice %></p>
+      </div>
+    </div>
+    <div class="container">
+      <!-- Example row of columns -->
+
+      <div class="row">
+        <div class="col-md-6">
+          <h2>Line Chart</h2>
+          <h6 id="output"</h6>
+          <canvas id="lineChart"></canvas>
+          <script>
+            let linedata = <%= @servers.to_json.html_safe %>;
+
+
+            for (var s = 0; s < linedata.length; s++) {
+              linedata[s].created_at = linedata[s].created_at.substring(0, linedata[s].created_at.indexOf('T'));
+            }
+            let date = [];
+            let count = [];
+            let num = 0;
+
+            for (var i = 0; i < linedata.length; i++)
+            {
+              if (date.length == 0) {
+                date.push(0);
+                count.push(0);
+                num = 1;
+              }
+              else {
+                var linecheck = 0;
+                for (var j = 0; j < date.length; j++) {
+                  if (date[j] == linedata[i].created_at)
+                  {
+                    linecheck = 1;
+                  }
+
+                  if (linecheck == 0 && j == date.length - 1) {
+                    date.push(linedata[i].created_at);
+                    count.push(num);
+                    num++;
+                    linecheck = 0;
+                  }
+
+                  if (linecheck == 1 && j == date.length - 1)
+                  {
+                    for (var k = 0; k < linedata.length; k++)
+                    {
+                      if (date[k] == linedata[i].created_at)
+                      {
+                        count[k] += 1;
+                        num++;
+                        linecheck = 0;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            let myLineChart = document.getElementById('lineChart').getContext('2d');
+            let examplelinechart = new Chart(myLineChart, {
+              type: 'line',
+              data: {
+                labels: date,
+                datasets:[{
+                  label: '# of Servers',
+                  data: count,
+                  backgroundColor: 'rgba(255,99,132,0.6)',
+                }]
+              },
+              options: {
+    scales: {
+        yAxes: [{
+            ticks: {
+                beginAtZero: true
+            }
+        }]
+    }
+}
+            });
+          </script>
+       </div>
+        <div class="col-md-6">
+          <h2>Pie Chart</h2>
+          <canvas id="pieChart"></canvas>
+          <script>
+            let os = [];
+            let data = <%= @servers.to_json.html_safe %>;
+            for (var i in data) {
+
+                  if (os.length == 0)
+                  {
+                    os.push({name: `${data[i].os_requested}`,
+                            count: 1
+                            });
+                  }
+                  else {
+                    var check = 0;
+                        for (var j = 0; j < os.length; j++) {
+                              if (os[j].name == data[i].os_requested)
+                              {
+                                    check = 1;
+                              }
+
+                              if (check == 0 && j == os.length - 1)
+                              {
+                                    os.push({name: `${data[i].os_requested}`,
+                                            count: 0
+                                            });
+                              }
+                              if (check == 1 && j == os.length - 1)
+                              {
+                                for (var k = 0; k < os.length; k++)
+                                {
+                                  if (os[k].name == data[i].os_requested)
+                                  {
+                                    os[k].count++;
+                                  }
+                                }
+                              }
+                  }
+            }
+          }
+          var names = [];
+          var counts = [];
+          console.log(data);
+          console.log(os);
+          for (var i = 0; i < os.length;i++)
+          {
+            names.push(os[i].name);
+            counts.push(os[i].count);
+          }
+            let myPieChart = document.getElementById('pieChart').getContext('2d');
+            let examplepiechart = new Chart(myPieChart, {
+              type: 'pie',
+              data: {
+                labels: names,
+                datasets:[{
+                  label: '# of Servers',
+                  data: counts,
+                  backgroundColor: [
+                    'rgba(255,99,132,0.6)',
+                    'rgba(54,162,235,0.6)',
+                    'rgba(255,206,86,0.6)',
+                    'rgba(75,192,192,0.6)',
+                    'rgba(153,102,64,0.6)',
+                  ]
+                }]
+              },
+              options:{
+
+              }
+            })
+          </script>
+        </div>
+      </div>
+
+      <hr>
+
+      <footer>
+       <p>&copy; Blue Devil Developers</p>
+     </footer>
+   </div>
+</body>
+</html>
