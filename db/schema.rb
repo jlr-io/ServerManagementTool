@@ -11,18 +11,10 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 2018_11_13_205742) do
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 7a640f85ef6aa972181687cbfbc430f95c163094
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
->>>>>>> 7a640f85ef6aa972181687cbfbc430f95c163094
-=======
->>>>>>> justin
+
 
   create_table "database_structures", force: :cascade do |t|
   end

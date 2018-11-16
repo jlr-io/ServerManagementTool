@@ -1,15 +1,20 @@
 <p id="notice"><%= notice %></p>
+<% if current_user.admin %>
+  <p>
+    <strong>User:</strong>
+    <%= @server.user_id %>
+  </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @server.user_id %>
-</p>
+  <p>
+    <strong>Approved:</strong>
+    <%= @server.approved %>
+  </p>
 
-<p>
-  <strong>Approved:</strong>
-  <%= @server.approved %>
-</p>
-
+  <p>
+    <strong>Asset:</strong>
+    <%= @server.asset %>
+  </p>
+<% end %>
 <p>
   <strong>Hostname:</strong>
   <%= @server.hostname %>
@@ -73,11 +78,6 @@
 <p>
   <strong>Virtual machine:</strong>
   <%= @server.virtual_machine %>
-</p>
-
-<p>
-  <strong>Asset:</strong>
-  <%= @server.asset %>
 </p>
 
 <%= link_to 'Edit', edit_server_path(@server) %> |
