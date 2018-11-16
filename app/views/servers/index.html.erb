@@ -6,9 +6,15 @@
   <thead>
     <tr>
       <% if current_user.admin %>
+<<<<<<< HEAD
         <th>User</th>
         <th>Approved</th>
          <th>Asset</th>
+=======
+      <th>User</th>
+      <th>Approved</th>
+      <th>Asset</th>
+>>>>>>> justin
       <% end %>
       <th>Hostname</th>
       <th>Location</th>
@@ -31,9 +37,15 @@
     <% @servers.each do |server| %>
       <tr>
         <% if current_user.admin %>
+<<<<<<< HEAD
           <td><%= server.user_id %></td>
           <td><%= server.approved %></td>
           <td><%= server.asset %></td>
+=======
+        <td><%= server.user_id %></td>
+        <td><%= server.approved %></td>
+        <td><%= server.asset %></td>
+>>>>>>> justin
         <% end %>
         <td><%= server.hostname %></td>
         <td><%= server.location %></td>

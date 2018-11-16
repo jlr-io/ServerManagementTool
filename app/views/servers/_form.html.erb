@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-
+  <% if current_user.admin %>
   <div class="field">
     <%= form.label :user_id %>
     <%= form.number_field :user_id %>
@@ -20,7 +20,12 @@
     <%= form.label :approved %>
     <%= form.check_box :approved %>
   </div>
-
+  
+    <div class="field">
+    <%= form.label :asset %>
+    <%= form.text_field :asset %>
+  </div>
+ <% end %>
   <div class="field">
     <%= form.label :hostname %>
     <%= form.text_field :hostname %>
@@ -86,6 +91,7 @@
     <%= form.check_box :virtual_machine %>
   </div>
 
+<<<<<<< HEAD
   
   <% if current_user.admin %>
     <div class="field">
@@ -95,6 +101,8 @@
   <% end %>
   
 
+=======
+>>>>>>> justin
   <div class="actions">
     <%= form.submit %>
   </div>
