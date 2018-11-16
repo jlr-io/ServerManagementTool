@@ -86,10 +86,14 @@
     <%= form.check_box :virtual_machine %>
   </div>
 
-  <div class="field">
+  
+  <% if current_user.admin %>
+    <div class="field">
     <%= form.label :asset %>
     <%= form.text_field :asset %>
-  </div>
+    </div>
+  <% end %>
+  
 
   <div class="actions">
     <%= form.submit %>

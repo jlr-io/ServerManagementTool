@@ -7,12 +7,12 @@ ruby '2.5.3'
 gem 'rails', '~> 5.2.1'
 gem 'rails-controller-testing'
 gem 'bcrypt', '~> 3.1.7'
-# Use postgresql as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+gem 'bootstrap-sass', '3.3.6'
 gem 'yaml_db'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
