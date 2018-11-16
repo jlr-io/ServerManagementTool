@@ -6,6 +6,7 @@
   <thead>
     <tr>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <% if current_user.admin %>
 <<<<<<< HEAD
         <th>User</th>
@@ -17,6 +18,10 @@
       <th>Asset</th>
 >>>>>>> justin
       <% end %>
+=======
+      <th>User</th>
+      <th>Approved</th>
+>>>>>>> 7a640f85ef6aa972181687cbfbc430f95c163094
 =======
       <th>User</th>
       <th>Approved</th>
@@ -35,6 +40,10 @@
       <th>Line of business</th>
       <th>Virtual machine</th>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+      <th>Asset</th>
+>>>>>>> 7a640f85ef6aa972181687cbfbc430f95c163094
 =======
       <th>Asset</th>
 >>>>>>> 7a640f85ef6aa972181687cbfbc430f95c163094
@@ -45,6 +54,7 @@
   <tbody>
     <% @servers.each do |server| %>
       <tr>
+<<<<<<< HEAD
 <<<<<<< HEAD
         <% if current_user.admin %>
 <<<<<<< HEAD
@@ -57,6 +67,10 @@
         <td><%= server.asset %></td>
 >>>>>>> justin
         <% end %>
+=======
+        <td><%= server.user_id %></td>
+        <td><%= server.approved %></td>
+>>>>>>> 7a640f85ef6aa972181687cbfbc430f95c163094
 =======
         <td><%= server.user_id %></td>
         <td><%= server.approved %></td>
@@ -75,6 +89,10 @@
         <td><%= server.line_of_business %></td>
         <td><%= server.virtual_machine %></td>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+        <td><%= server.asset %></td>
+>>>>>>> 7a640f85ef6aa972181687cbfbc430f95c163094
 =======
         <td><%= server.asset %></td>
 >>>>>>> 7a640f85ef6aa972181687cbfbc430f95c163094
