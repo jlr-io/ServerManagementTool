@@ -7,6 +7,7 @@
     <tr>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       <% if current_user.admin %>
 <<<<<<< HEAD
         <th>User</th>
@@ -26,6 +27,13 @@
       <th>User</th>
       <th>Approved</th>
 >>>>>>> 7a640f85ef6aa972181687cbfbc430f95c163094
+=======
+      <% if current_user.admin %>
+      <th>User</th>
+      <th>Approved</th>
+      <th>Asset</th>
+      <% end %>
+>>>>>>> justin
       <th>Hostname</th>
       <th>Location</th>
       <th>Environment</th>
@@ -41,12 +49,15 @@
       <th>Virtual machine</th>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
       <th>Asset</th>
 >>>>>>> 7a640f85ef6aa972181687cbfbc430f95c163094
 =======
       <th>Asset</th>
 >>>>>>> 7a640f85ef6aa972181687cbfbc430f95c163094
+=======
+>>>>>>> justin
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -54,6 +65,7 @@
   <tbody>
     <% @servers.each do |server| %>
       <tr>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
         <% if current_user.admin %>
@@ -75,6 +87,13 @@
         <td><%= server.user_id %></td>
         <td><%= server.approved %></td>
 >>>>>>> 7a640f85ef6aa972181687cbfbc430f95c163094
+=======
+        <% if current_user.admin %>
+        <td><%= server.user_id %></td>
+        <td><%= server.approved %></td>
+        <td><%= server.asset %></td>
+        <% end %>
+>>>>>>> justin
         <td><%= server.hostname %></td>
         <td><%= server.location %></td>
         <td><%= server.environment %></td>
@@ -90,12 +109,15 @@
         <td><%= server.virtual_machine %></td>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         <td><%= server.asset %></td>
 >>>>>>> 7a640f85ef6aa972181687cbfbc430f95c163094
 =======
         <td><%= server.asset %></td>
 >>>>>>> 7a640f85ef6aa972181687cbfbc430f95c163094
+=======
+>>>>>>> justin
         <td><%= link_to 'Show', server %></td>
         <td><%= link_to 'Edit', edit_server_path(server) %></td>
         <td><%= link_to 'Destroy', server, method: :delete, data: { confirm: 'Are you sure?' } %></td>
