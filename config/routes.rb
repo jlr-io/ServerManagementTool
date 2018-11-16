@@ -9,7 +9,5 @@ Rails.application.routes.draw do
   post '/login',    to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   get 'dashboard/',  to: 'dashboard#index'
-  get 'servers/index', to: 'servers#index'
-  get '/server', to: 'server#new'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
