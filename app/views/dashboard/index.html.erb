@@ -4,13 +4,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>ChartJS Test</title>
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <script src"https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
 </head>
 <body>
 
@@ -29,15 +25,15 @@
           <h6 id="output"</h6>
           <canvas id="lineChart"></canvas>
           <script>
-            let linedata = <%= @servers.to_json.html_safe %>;
+            var linedata = <%= @servers.to_json.html_safe %>;
 
 
             for (var s = 0; s < linedata.length; s++) {
               linedata[s].created_at = linedata[s].created_at.substring(0, linedata[s].created_at.indexOf('T'));
             }
-            let date = [];
-            let count = [];
-            let num = 0;
+            var date = [];
+            var count = [];
+            var num = 0;
 
             for (var i = 0; i < linedata.length; i++)
             {
@@ -76,8 +72,8 @@
                 }
               }
             }
-            let myLineChart = document.getElementById('lineChart').getContext('2d');
-            let examplelinechart = new Chart(myLineChart, {
+            var myLineChart = document.getElementById('lineChart').getContext('2d');
+            var examplelinechart = new Chart(myLineChart, {
               type: 'line',
               data: {
                 labels: date,
@@ -103,8 +99,8 @@
           <h2>Pie Chart</h2>
           <canvas id="pieChart"></canvas>
           <script>
-            let os = [];
-            let data = <%= @servers.to_json.html_safe %>;
+            var os = [];
+            var data = <%= @servers.to_json.html_safe %>;
             for (var i in data) {
 
                   if (os.length == 0)
@@ -149,8 +145,8 @@
             names.push(os[i].name);
             counts.push(os[i].count);
           }
-            let myPieChart = document.getElementById('pieChart').getContext('2d');
-            let examplepiechart = new Chart(myPieChart, {
+            var myPieChart = document.getElementById('pieChart').getContext('2d');
+            var examplepiechart = new Chart(myPieChart, {
               type: 'pie',
               data: {
                 labels: names,
