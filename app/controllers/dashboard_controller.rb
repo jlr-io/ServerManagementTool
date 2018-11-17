@@ -4,16 +4,17 @@ class DashboardController < ApplicationController
   end
 
   def employee
-    if current_user.admin == true
-      redirect_to admin_path
+    if current_user.employee == true
+      redirect_to employee_path
     end
   end
 
   def admin
     if current_user.admin == false
-      redirect_to employee_path
+      redirect_to admin_path
     end
   end
+  
   def index
     @servers = Server.all
   end

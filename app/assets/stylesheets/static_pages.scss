@@ -11,7 +11,9 @@ $gray-medium-light: #eaeaea;
 /* universal */
 body {
   padding-top: 60px;
+  background-color: coral;
 }
+
 section {
   overflow: auto;
 }
@@ -249,3 +251,35 @@ span.picture {
     border: 0;
   }
 }
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+    color: white;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #111;
+}
+
+a:link {color: #1BA1DF;}      /* unvisited link */
+a:visited {color: #1BA1DF;}  /* visited link */
+a:hover {color: #1BA1DF;}  /* mouse over link */
+a:active {color: #1BA1DF;} 
+
