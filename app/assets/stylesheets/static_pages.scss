@@ -166,13 +166,28 @@ aside {
 /* forms */
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
-  width: 100%;
+  width: 50%;
   margin-bottom: 15px;
+  
   @include box_sizing;
 }
+label {
+  padding-right: 50px;
+  padding-left: 10px;
+  width: 25em;
+}
+
+form {
+  padding-top: 10px;
+  width: 800px;
+  border: 1px solid #000;
+  margin: 10px auto;
+}
+
 input {
   height: auto !important;
 }
+
 #error_explanation {
   color: red;
   ul {
@@ -252,41 +267,3 @@ span.picture {
   }
 }
 
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-}
-
-li {
-    float: left;
-    color: white;
-}
-
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-/* Change the link color to #111 (black) on hover */
-li a:hover {
-    background-color: #111;
-}
-
-a:link {color: #1BA1DF;}      /* unvisited link */
-a:visited {color: #1BA1DF;}  /* visited link */
-a:hover {color: #1BA1DF;}  /* mouse over link */
-a:active {color: #1BA1DF;} 
-
-h1 {
-    text-align: left;
-}
-
-.dashboard {
-  text-align: center;
-}
