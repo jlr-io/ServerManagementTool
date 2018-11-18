@@ -40,6 +40,10 @@
               if (date.length == 0) {
                 date.push(0);
                 count.push(0);
+                num = 0;
+                
+                date.push(linedata[0].created_at);
+                count.push(1);
                 num = 1;
               }
               else {
