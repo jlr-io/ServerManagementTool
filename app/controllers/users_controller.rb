@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   def index
     @users = User.all
   end
-
+  
   # GET /users/1
   # GET /users/1.json
   def show
@@ -63,7 +63,13 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  
+  def employee
+    if current_user.employee == true
+      redirect_to employee_path
+    end
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
@@ -74,4 +80,6 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:id, :username, :admin, :password, :password_confirmation)
     end
+    
+    
 end

@@ -11,7 +11,9 @@ $gray-medium-light: #eaeaea;
 /* universal */
 body {
   padding-top: 60px;
+  background-color: coral;
 }
+
 section {
   overflow: auto;
 }
@@ -164,13 +166,28 @@ aside {
 /* forms */
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
-  width: 100%;
+  width: 50%;
   margin-bottom: 15px;
+  
   @include box_sizing;
 }
+label {
+  padding-right: 50px;
+  padding-left: 10px;
+  width: 25em;
+}
+
+form {
+  padding-top: 10px;
+  width: 800px;
+  border: 1px solid #000;
+  margin: 10px auto;
+}
+
 input {
   height: auto !important;
 }
+
 #error_explanation {
   color: red;
   ul {
@@ -249,3 +266,4 @@ span.picture {
     border: 0;
   }
 }
+

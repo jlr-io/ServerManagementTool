@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <h1 class=left>Navigation</h1>
   <nav>
       <%= link_to "Home",   employee_path, class: "btn btn-lg btn-primary"%>
@@ -5,3 +6,16 @@
       <%= link_to 'Servers', servers_path, class: "btn btn-lg btn-primary"%>
       <%= link_to 'Dashboard', dashboard_path, class: "btn btn-lg btn-primary"%>
   </nav>
+=======
+<ul>
+      <li><%= link_to "Home",                  employee_path %>                    </li>
+      <li><%= link_to "Dashboard",             dashboard_path %>                   </li>
+      <li><%= link_to 'Add Server',            servers_path %>                     </li>
+      <% if current_user && current_user.admin %>
+            <li><%= link_to 'Add Employee',    users_path %>                       </li>
+      <% end %>
+      <li><%= link_to 'Logout',                logout_path, method: :delete %>     </li>
+</ul>
+
+
+>>>>>>> kyle
