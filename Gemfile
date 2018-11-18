@@ -7,7 +7,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 gem 'rails', '~> 5.2.1'
 gem 'rails-controller-testing'
 gem 'bcrypt', '~> 3.1.7'
-gem 'sqlite3'
 gem 'chart-js-rails'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
