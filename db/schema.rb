@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2018_11_20_173147) do
 
   create_table "audits", force: :cascade do |t|
@@ -33,6 +34,9 @@ ActiveRecord::Schema.define(version: 2018_11_20_173147) do
     t.index ["request_uuid"], name: "index_audits_on_request_uuid"
     t.index ["user_id", "user_type"], name: "user_index"
   end
+=======
+ActiveRecord::Schema.define(version: 2018_11_13_205742) do
+>>>>>>> 134b1b69f66283c055125d9546a12fb407d519fe
 
   create_table "database_structures", force: :cascade do |t|
   end

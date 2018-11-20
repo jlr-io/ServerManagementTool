@@ -1,3 +1,17 @@
 // Place all the styles related to the Servers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+table {
+	font-family: verdana,arial,sans-serif;
+	font-size:11px;
+	color:#333333;
+}
+table th {
+	background:#b5cfd2;
+	border-color: #999999;
+}
+table td {
+	background:#dcddc0;
+	border-color: #999999;
+}
+

@@ -165,14 +165,24 @@ aside {
 }
 /* forms */
 input, textarea, select, .uneditable-input {
-  border: 1px solid #bbb;
-  width: 100%;
   margin-bottom: 15px;
-  @include box_sizing;
 }
 input {
   height: auto !important;
 }
+
+.newserverpadding {
+  padding-left: 550px;
+  font-size: 20px;
+  padding-bottom: 50px;
+}
+
+.newuserpadding {
+  padding-left: 557px;
+  font-size: 20px;
+  padding-bottom: 50px;
+}
+
 #error_explanation {
   color: red;
   ul {
@@ -185,6 +195,9 @@ input {
   .form-control {
     color: $state-danger-text;
   }
+}
+h1.modelsh1{
+  text-align: center;
 }
 .checkbox {
   margin-top: -10px;
@@ -250,4 +263,85 @@ span.picture {
   input {
     border: 0;
   }
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+    color: white;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #111;
+}
+
+a:link {color: #1BA1DF;}      /* unvisited link */
+a:visited {color: #1BA1DF;}  /* visited link */
+a:hover {color: #1BA1DF;}  /* mouse over link */
+a:active {color: #1BA1DF;} 
+
+h1 {
+    text-align: left;
+}
+
+.h2leftalign {
+  text-align: left;
+}
+
+.h1leftalign {
+  text-align: left;
+}
+.dashboard {
+  text-align: center;
+}
+
+table {
+  border: 3px solid #000000;
+  text-align: left;
+  border-collapse: collapse;
+}
+table td, table th {
+  border: 1px solid #000000;
+  padding: 5px 4px;
+}
+table tbody td {
+  font-size: 13px;
+}
+table thead {
+  background: #CFCFCF;
+  background: -moz-linear-gradient(top, #dbdbdb 0%, #d3d3d3 66%, #CFCFCF 100%);
+  background: -webkit-linear-gradient(top, #dbdbdb 0%, #d3d3d3 66%, #CFCFCF 100%);
+  background: linear-gradient(to bottom, #dbdbdb 0%, #d3d3d3 66%, #CFCFCF 100%);
+  border-bottom: 3px solid #000000;
+}
+table thead th {
+  font-size: 15px;
+  font-weight: bold;
+  color: #000000;
+  text-align: left;
+}
+table tfoot {
+  font-size: 14px;
+  font-weight: bold;
+  color: #000000;
+  border-top: 3px solid #000000;
+}
+tables tfoot td {
+  font-size: 14px;
 }

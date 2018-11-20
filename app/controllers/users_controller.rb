@@ -7,9 +7,9 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @users = User.where(["username LIKE ?", "%#{params[:search]}%"])
   end
-
+  
   # GET /users/1
   # GET /users/1.json
   def show
@@ -63,7 +63,13 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  
+  def employee
+    if current_user.employee == true
+      redirect_to employee_path
+    end
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
@@ -72,6 +78,8 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:username, :admin, :password, :password_confirmation)
+      params.require(:user).permit(:id, :username, :admin, :password, :password_confirmation)
     end
+    
+    
 end

@@ -7,7 +7,7 @@ class ServersController < ApplicationController
   # GET /servers
   # GET /servers.json
   def index
-    @servers = Server.all
+      @servers = Server.where(["hostname LIKE ?", "%#{params[:search]}%"])
   end
 
   # GET /servers/1
@@ -27,7 +27,7 @@ class ServersController < ApplicationController
   # POST /servers
   # POST /servers.json
   def create
-    @server = Server.new(server_params)
+    @server = Server.new(server_params.merge(user_id: current_user.id))
 
     respond_to do |format|
       if @server.save
@@ -72,6 +72,10 @@ class ServersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def server_params
-      params.require(:server).permit(:user_id, :approved, :hostname, :location, :environment, :os_requested, :disk_size, :eng_team_sme_contact_id, :eng_team_manager_contact_id, :application_sme_id, :application_team_distro_group, :application_manager_id, :application_director_id, :line_of_business, :virtual_machine, :asset)
+      if (current_user.admin)
+        params.require(:server).permit(:user_id, :approved, :hostname, :location, :environment, :os_requested, :disk_size, :eng_team_sme_contact_id, :eng_team_manager_contact_id, :application_sme_id, :application_team_distro_group, :application_manager_id, :application_director_id, :line_of_business, :virtual_machine, :asset)
+      else
+        params.require(:server).permit(@current_user.id, :approved, :hostname, :location, :environment, :os_requested, :disk_size, :eng_team_sme_contact_id, :eng_team_manager_contact_id, :application_sme_id, :application_team_distro_group, :application_manager_id, :application_director_id, :line_of_business, :virtual_machine, :asset)
+      end
     end
 end
