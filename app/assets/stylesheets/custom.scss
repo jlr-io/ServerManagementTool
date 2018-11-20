@@ -190,6 +190,10 @@ input {
     margin: 0 0 30px 0;
   }
 }
+.formcheckbox {
+  width: 18px; 
+  height: 50px;
+}
 .field_with_errors {
   @extend .has-error;
   .form-control {
