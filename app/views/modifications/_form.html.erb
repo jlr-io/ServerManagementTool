@@ -1,0 +1,42 @@
+<%= form_with(model: modification, local: true) do |form| %>
+  <% if modification.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(modification.errors.count, "error") %> prohibited this modification from being saved:</h2>
+
+      <ul>
+      <% modification.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.number_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :server_id %>
+    <%= form.number_field :server_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :edit_server %>
+    <%= form.check_box :edit_server %>
+  </div>
+
+  <div class="field">
+    <%= form.label :delete_server %>
+    <%= form.check_box :delete_server %>
+  </div>
+
+  <div class="field">
+    <%= form.label :comments %>
+    <%= form.text_area :comments %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

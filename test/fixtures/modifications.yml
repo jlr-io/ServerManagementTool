@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  server_id: 1
+  edit_server: false
+  delete_server: false
+  comments: MyText
+
+two:
+  user_id: 1
+  server_id: 1
+  edit_server: false
+  delete_server: false
+  comments: MyText
