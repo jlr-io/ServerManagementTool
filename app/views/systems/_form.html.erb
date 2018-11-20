@@ -1,0 +1,62 @@
+<%= form_with(model: system, local: true) do |form| %>
+  <% if system.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(system.errors.count, "error") %> prohibited this system from being saved:</h2>
+
+      <ul>
+      <% system.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :server_id %>
+    <%= form.number_field :server_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :system %>
+    <%= form.text_field :system %>
+  </div>
+
+  <div class="field">
+    <%= form.label :machine %>
+    <%= form.text_field :machine %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cpu %>
+    <%= form.text_field :cpu %>
+  </div>
+
+  <div class="field">
+    <%= form.label :graphics %>
+    <%= form.text_field :graphics %>
+  </div>
+
+  <div class="field">
+    <%= form.label :drives %>
+    <%= form.text_field :drives %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ip %>
+    <%= form.text_field :ip %>
+  </div>
+
+  <div class="field">
+    <%= form.label :boot_time %>
+    <%= form.text_field :boot_time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.text_field :date %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

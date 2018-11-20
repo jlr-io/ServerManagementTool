@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @request.user_id %>
+</p>
+
+<p>
+  <strong>Edit:</strong>
+  <%= @request.edit %>
+</p>
+
+<p>
+  <strong>Delete:</strong>
+  <%= @request.delete %>
+</p>
+
+<p>
+  <strong>Comments:</strong>
+  <%= @request.comments %>
+</p>
+
+<%= link_to 'Edit', edit_request_path(@request) %> |
+<%= link_to 'Back', requests_path %>

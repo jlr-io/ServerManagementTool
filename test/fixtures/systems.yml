@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  server_id: 1
+  system: MyString
+  machine: MyString
+  cpu: MyString
+  graphics: MyString
+  drives: MyString
+  ip: MyString
+  boot_time: MyString
+  date: MyString
+
+two:
+  server_id: 1
+  system: MyString
+  machine: MyString
+  cpu: MyString
+  graphics: MyString
+  drives: MyString
+  ip: MyString
+  boot_time: MyString
+  date: MyString
