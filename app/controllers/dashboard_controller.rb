@@ -3,8 +3,6 @@ class DashboardController < ApplicationController
     logged_in_user
   end
 
-<<<<<<< HEAD
-=======
   def employee
     if current_user.employee == true
       redirect_to employee_path
@@ -17,7 +15,6 @@ class DashboardController < ApplicationController
     end
   end
   
->>>>>>> kyle
   def index
     @servers = Server.all
   end
