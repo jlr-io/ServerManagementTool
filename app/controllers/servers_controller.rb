@@ -9,7 +9,14 @@ class ServersController < ApplicationController
   def index
       @servers = Server.where(["hostname LIKE ?", "%#{params[:search]}%"])
   end
-
+  
+  def approved
+    @servers = Server.where(["hostname LIKE ?", "%#{params[:search]}%"])
+  end
+  
+  def pending
+     @servers = Server.where(["hostname LIKE ?", "%#{params[:search]}%"])
+  end
   # GET /servers/1
   # GET /servers/1.json
   def show
@@ -59,7 +66,7 @@ class ServersController < ApplicationController
   def destroy
     @server.destroy
     respond_to do |format|
-      format.html { redirect_to servers_url, notice: 'Server was successfully destroyed.' }
+      format.html { redirect_to employee_path, notice: 'Server was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

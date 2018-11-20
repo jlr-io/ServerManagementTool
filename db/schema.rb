@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_20_173147) do
+ActiveRecord::Schema.define(version: 2018_11_20_203929) do
 
   create_table "audits", force: :cascade do |t|
     t.integer "auditable_id"
@@ -43,6 +43,15 @@ ActiveRecord::Schema.define(version: 2018_11_20_173147) do
     t.boolean "edit_server"
     t.boolean "delete_server"
     t.text "comments"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "requests", force: :cascade do |t|
+    t.integer "user_id"
+    t.boolean "edit"
+    t.boolean "delete"
+    t.string "comments"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
