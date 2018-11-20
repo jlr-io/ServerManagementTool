@@ -65,10 +65,7 @@ class ServersController < ApplicationController
   # DELETE /servers/1.json
   def destroy
     @server.destroy
-    respond_to do |format|
-      format.html { redirect_to employee_path, notice: 'Server was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_back(fallback_location:employee_path)
   end
 
   private
