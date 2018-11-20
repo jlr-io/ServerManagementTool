@@ -7,7 +7,7 @@ class ServersController < ApplicationController
   # GET /servers
   # GET /servers.json
   def index
-    @servers = Server.all
+      @servers = Server.where(["hostname LIKE ?", "%#{params[:search]}%"])
   end
 
   # GET /servers/1

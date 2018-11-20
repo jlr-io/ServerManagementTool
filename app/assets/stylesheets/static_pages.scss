@@ -174,7 +174,15 @@ input, textarea, select, .uneditable-input {
 label {
   padding-right: 50px;
   padding-left: 10px;
-  width: 25em;
+  width: 15em;
+}
+
+form.searchbox {
+    padding-top: 10px;
+    width: 640px;
+    border: 0px solid; 
+    margin-left: 0px;
+    margin-bottom: 10px;
 }
 
 form {
