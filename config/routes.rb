@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  resources :requests
-  resources :systems
+  resources :modifications
   resources :servers
   resources :users
 

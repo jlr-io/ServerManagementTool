@@ -190,6 +190,10 @@ input {
     margin: 0 0 30px 0;
   }
 }
+.formcheckbox {
+  width: 18px; 
+  height: 50px;
+}
 .field_with_errors {
   @extend .has-error;
   .form-control {
@@ -269,8 +273,8 @@ ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    overflow: hidden;
     background-color: #333;
+    overflow: visible;
 }
 
 li {
