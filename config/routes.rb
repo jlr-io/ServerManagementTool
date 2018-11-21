@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   resources :servers
   resources :users
 
+  root 'sessions#new'
+  
   get '/modification', to: 'modifications#new'
   
   get '/admin',    to: 'static_pages#admin'

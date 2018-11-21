@@ -165,22 +165,54 @@ aside {
 }
 /* forms */
 input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 50%;
   margin-bottom: 15px;
+  
+  @include box_sizing;
 }
+
 input {
   height: auto !important;
 }
 
+label {
+  padding-right: 50px;
+  padding-left: 10px;
+  width: 15em;
+}
+
+form {
+  padding-top: 10px;
+  width: 800px;
+  border: 1px solid #000;
+  margin: 10px auto;
+}
+
+form.searchbox {
+    padding-top: 10px;
+    width: 640px;
+    border: 0px solid; 
+    margin-left: 0px;
+    margin-bottom: 10px;
+}
+
+form.check_box {
+  margin-right: 20px;
+}
+
 .newserverpadding {
-  padding-left: 550px;
+  /* padding-left: 557px; */
   font-size: 20px;
-  padding-bottom: 50px;
+  margin-left: 470px;
+  /* padding-bottom: 50px; */
 }
 
 .newuserpadding {
-  padding-left: 557px;
+  /* padding-left: 557px; */
   font-size: 20px;
-  padding-bottom: 50px;
+  margin-left: 470px;
+  /* padding-bottom: 50px; */
 }
 
 #error_explanation {
@@ -269,14 +301,6 @@ span.picture {
   }
 }
 
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    background-color: #333;
-    overflow: visible;
-}
-
 li {
     float: left;
     color: white;
@@ -285,23 +309,32 @@ li {
 li a {
     display: block;
     color: white;
-    text-align: center;
     padding: 14px 16px;
     text-decoration: none;
 }
 
 /* Change the link color to #111 (black) on hover */
-li a:hover {
-    background-color: #111;
-}
 
 a:link {color: #1BA1DF;}      /* unvisited link */
 a:visited {color: #1BA1DF;}  /* visited link */
 a:hover {color: #1BA1DF;}  /* mouse over link */
 a:active {color: #1BA1DF;} 
-
+nav {
+  background-color: #333;
+}
 h1 {
     text-align: left;
+}
+
+.headerul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #181818;
+}
+
+.headerli {
+  
 }
 
 .h2leftalign {
