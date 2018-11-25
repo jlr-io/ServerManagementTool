@@ -8,10 +8,11 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <% unless current_page?(root_path) %>
-    <%= render 'layouts/header' %>
-  <% end %>
+  <%= render 'layouts/header' %>
   <body>
       <%= yield %>
+      <footer>
+       <p>&copy; 2018</p>
+      </footer>
   </body>
 </html>
