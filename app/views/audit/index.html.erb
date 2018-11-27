@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+<h1>Audit</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Approved</th>
+      <th>Asset</th>
+      <th>Hostname</th>
+      <th>Os requested</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @servers.each do |server| %>
+      <tr>
+        <% if server.approved %>
+        <td><%= server.user_id %></td>
+        <td><%= server.approved %></td>
+        <td><%= server.asset %></td>
+        <td><%= server.hostname %></td>
+        <td><%= server.os_requested %></td>
+        <td><%= link_to 'Show', server, class: "btn btn-default" %></td>
+        <td><%= link_to 'Edit', edit_server_path(server), class:"btn btn-default" %></td>
+        <td><%= link_to 'Destroy', server, method: :delete, class: "btn btn-default", data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
