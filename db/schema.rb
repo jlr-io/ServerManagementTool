@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2018_11_20_173147) do
+=======
+ActiveRecord::Schema.define(version: 2018_11_20_203929) do
+>>>>>>> a8b021af3f689d72cba310cb1c3de837e43f6cc1
 
   create_table "audits", force: :cascade do |t|
     t.integer "auditable_id"
@@ -35,6 +39,16 @@ ActiveRecord::Schema.define(version: 2018_11_20_173147) do
   end
 
   create_table "database_structures", force: :cascade do |t|
+  end
+
+  create_table "modifications", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "server_id"
+    t.boolean "edit_server"
+    t.boolean "delete_server"
+    t.text "comments"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "requests", force: :cascade do |t|

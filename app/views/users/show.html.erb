@@ -1,20 +1,28 @@
 <p id="notice"><%= notice %></p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="well">
+        <h2><strong>User Info</strong></h2>
 
-<p>
-  <strong>ID:</strong>
-  <%= @user.id %>
-</p>
+      <p>
+        <strong>ID:</strong>
+        <%= @user.id %>
+      </p>
 
 
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
+      <p>
+        <strong>Username:</strong>
+        <%= @user.username %>
+      </p>
 
-<p>
-  <strong>Admin:</strong>
-  <%= @user.admin %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+      <p>
+        <strong>Admin:</strong>
+        <%= @user.admin %>
+      </p>
+      </div>
+    </div>
+  </div>
+</div>
+<strong><%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %></strong>
