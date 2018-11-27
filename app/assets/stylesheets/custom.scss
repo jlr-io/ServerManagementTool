@@ -321,6 +321,9 @@ a:hover {color: #1BA1DF;}  /* mouse over link */
 a:active {color: #1BA1DF;} 
 nav {
   background-color: #333;
+  a {
+    float: right;
+  }
 }
 h1 {
     text-align: left;

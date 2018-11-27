@@ -21,6 +21,8 @@ class ServersController < ApplicationController
   # GET /servers/1
   # GET /servers/1.json
   def show
+    @server = Server.find(params[:id])
+    @system = System.find(@server.system.id)
   end
 
   # GET /servers/new

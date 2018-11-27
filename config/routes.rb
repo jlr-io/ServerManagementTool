@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :modifications
   resources :servers
+  resources :systems
   resources :users
   
   get '/modification', to: 'modifications#new'
@@ -18,5 +19,7 @@ Rails.application.routes.draw do
   get '/approved', to: 'servers#approved'
   get '/pending', to: 'servers#pending'
   get '/server', to: 'server#new'
+  
+  get '/system', to: 'system#new'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
