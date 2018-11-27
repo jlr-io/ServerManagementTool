@@ -11,12 +11,13 @@ class ServersController < ApplicationController
   end
   
   def approved
-    @servers = Server.where(["hostname LIKE ?", "%#{params[:search]}%"])
+      @servers = Server.where(["hostname LIKE ?", "%#{params[:search]}%"])
   end
   
   def pending
-     @servers = Server.where(["hostname LIKE ?", "%#{params[:search]}%"])
+      @servers = Server.where(["hostname LIKE ?", "%#{params[:search]}%"])
   end
+  
   # GET /servers/1
   # GET /servers/1.json
   def show

@@ -2,13 +2,12 @@ Rails.application.routes.draw do
   resources :modifications
   resources :servers
   resources :users
-
-  root 'sessions#new'
   
   get '/modification', to: 'modifications#new'
   
   get '/admin',    to: 'static_pages#admin'
   get '/employee',  to: 'static_pages#employee'
+  
   root 'sessions#new'
   
   get '/login',     to: 'sessions#new'
