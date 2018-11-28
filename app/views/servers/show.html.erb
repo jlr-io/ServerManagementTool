@@ -5,8 +5,12 @@
       <div class="well">
       <h2><strong>General</strong></h2>
         <p>
-          <strong>User:</strong>
+          <strong>User id:</strong>
           <%= @server.user_id %>
+        </p>
+           <p>
+          <strong>Server id:</strong>
+          <%= @server.id %>
         </p>
 
         <p>
@@ -114,6 +118,7 @@
     </div>
   </div>
 </div>
+<% unless @server.system.nil? %>
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-8">
@@ -160,5 +165,6 @@
     </div>
   </div>
 </div>
+<% end %>
 <strong><%= link_to 'Edit', edit_server_path(@server) %> |
 <%= link_to 'Back', servers_path %> </strong>

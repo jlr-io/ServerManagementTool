@@ -8,7 +8,7 @@
   <thead>
     <tr>
       <th>User</th>
-      <th>Approved</th>
+      <th>Status</th></th>
       <th>Asset</th>
       <th>Hostname</th>
       <th>Os requested</th>
@@ -19,9 +19,9 @@
   <tbody>
     <% @servers.each do |server| %>
       <tr>
-        <% if !server.approved && server.user_id == current_user.id || current_user.admin %>
+        <% if !server.approved && (server.user_id == current_user.id || current_user.admin) %>
         <td><%= server.user_id %></td>
-        <td><%= server.approved %></td>
+        <td><%= "Pending" %></td>
         <td><%= server.asset %></td>
         <td><%= server.hostname %></td>
         <td><%= server.os_requested %></td>
