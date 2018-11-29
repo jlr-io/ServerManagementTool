@@ -19,7 +19,8 @@ Rails.application.routes.draw do
   get '/create', to: 'servers#new'
   get '/ticket', to: 'tickets#new'
   get '/server', to: 'server#new'
-  
+  get '/accepted', to: 'tickets#accepted'
+  get '/unaccepted', to: 'tickets#unaccepted'
   get '/system', to: 'system#new'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

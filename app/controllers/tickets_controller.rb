@@ -26,6 +26,15 @@ class TicketsController < ApplicationController
     end
   end
  
+ 
+ def accepted
+   @tickets = Ticket.all
+ end
+ 
+ def unaccepted
+   @tickets = Ticket.all
+ end
+ 
   # GET /tickets
   # GET /tickets.json
   def index
@@ -95,7 +104,7 @@ class TicketsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def ticket_params
       if (current_user.admin)
-        params.require(:ticket).permit(@current_user.id, :server_id, :comments)
+        params.require(:ticket).permit(@current_user.id, :server_id, :ticket_type, :accepted, :complete, :comments)
       else
         params.require(:ticket).permit(@current_user.id, :server_id, :ticket_type, :comments)
       end

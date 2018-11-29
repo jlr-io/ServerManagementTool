@@ -40,11 +40,12 @@
     <%= form.label :accepted %>
     <%= form.check_box :accepted, :class => "formcheckbox" %>
   </div>
-  
+  <% if @ticket.accepted %>
   <div class="field">
     <%= form.label :complete %>
     <%= form.check_box :complete, :class => "formcheckbox" %>
   </div>
+  <% end %>
 <% end %>
 
   <div class="actions">
