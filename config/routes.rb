@@ -1,23 +1,23 @@
 Rails.application.routes.draw do
-  resources :modifications
+  resources :tickets
   resources :servers
   resources :systems
   resources :users
   
-  get '/modification', to: 'modifications#new'
   
   get '/admin',    to: 'static_pages#admin'
   get '/employee',  to: 'static_pages#employee'
-  
-  root 'sessions#new'
+  root 'sessions#new'  
   
   get '/login',     to: 'sessions#new'
   post '/login',    to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
-  
   get '/dashboard',  to: 'dashboard#index'
+  get 'servers/index', to: 'servers#index'
   get '/approved', to: 'servers#approved'
   get '/pending', to: 'servers#pending'
+  get '/create', to: 'servers#new'
+  get '/ticket', to: 'tickets#new'
   get '/server', to: 'server#new'
   
   get '/system', to: 'system#new'
