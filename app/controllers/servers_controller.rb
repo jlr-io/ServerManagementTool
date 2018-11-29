@@ -2,6 +2,7 @@ class ServersController < ApplicationController
   before_action :set_server, only: [:show, :edit, :update, :destroy]
   before_action :logged_in_user, only: [:index, :show, :edit, :update, :destroy]
   before_action :is_admin, only: [:edit, :update, :destroy]
+<<<<<<< HEAD
   # GET /servers
   # GET /servers.json
   
@@ -27,11 +28,11 @@ class ServersController < ApplicationController
       redirect_to(root_url)
     end
   end
-
-  # GET /servers
-  # GET /servers.json
+  
+  
+  
   def index
-      @servers = Server.where(["hostname LIKE ?", "%#{params[:search]}%"])
+      @servers = Server.all
   end
   
   def approved
@@ -45,6 +46,10 @@ class ServersController < ApplicationController
   # GET /servers/1
   # GET /servers/1.json
   def show
+    @server = Server.find(params[:id])
+    unless @server.system.nil?
+      @system = System.find(@server.system.id)
+    end
   end
 
   # GET /servers/new

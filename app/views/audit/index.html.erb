@@ -1,14 +1,11 @@
 <p id="notice"><%= notice %></p>
-<h1>Servers</h1>
-  <%= form_tag pending_path, class: 'searchbox', :method => 'get' do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Enter search params..."%>
-    <%= submit_tag "Search" %>
-  <% end %>
+<h1>Audit</h1>
+
 <table>
   <thead>
     <tr>
       <th>User</th>
-      <th>Status</th></th>
+      <th>Approved</th>
       <th>Asset</th>
       <th>Hostname</th>
       <th>Os requested</th>
@@ -19,9 +16,9 @@
   <tbody>
     <% @servers.each do |server| %>
       <tr>
-        <% if !server.approved && (server.user_id == current_user.id || current_user.admin) %>
+        <% if server.approved %>
         <td><%= server.user_id %></td>
-        <td><%= "Pending" %></td>
+        <td><%= server.approved %></td>
         <td><%= server.asset %></td>
         <td><%= server.hostname %></td>
         <td><%= server.os_requested %></td>
@@ -35,5 +32,3 @@
 </table>
 
 <br>
-
-<%= link_to 'New Server', new_server_path, class: "btn btn-default" %>

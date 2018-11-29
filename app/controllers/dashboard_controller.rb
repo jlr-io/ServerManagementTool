@@ -1,7 +1,5 @@
 class DashboardController < ApplicationController
-  before_action do
-    logged_in_user
-  end
+  before_action :logged_in?, only: [:index]
 
   def employee
     if current_user.employee == true

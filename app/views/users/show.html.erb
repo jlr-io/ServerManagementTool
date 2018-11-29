@@ -12,13 +12,17 @@
 
 
       <p>
-        <strong>Username:</strong>
+        <strong>Name:</strong>
         <%= @user.username %>
       </p>
 
       <p>
-        <strong>Admin:</strong>
-        <%= @user.admin %>
+        <strong>Role:</strong>
+      <% if @user.admin %>
+        <%= "Administrator" %>
+      <% else %>
+        <%= "Employee" %>
+      <% end %>
       </p>
       </div>
     </div>

@@ -1,8 +1,32 @@
 class UsersController < ApplicationController
-  before_action do
-    logged_in_user
+  before_action :logged_in_user, only: [:index, :show, :edit, :update]
+  before_action :correct_user, only: [:show, :edit, :update]
+  before_action :is_admin, only:[:index,:show, :edit, :update, :destroy]
+  
+  def is_admin
+    unless current_user.admin
+      flash[:danger] = "Admin page: not authorized."
+      redirect_to(root_url)
+    end
   end
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  
+  
+  def correct_user
+    @user = User.find(params[:id])
+    unless @user == current_user || correct_user.admin
+      flash[:danger] = "You are not authorized to do that!"
+      redirect_to(root_url)
+    end
+  end
+  
+  def logged_in_user
+    unless logged_in?
+      store_location
+      flash[:danger] = "Please log in!"
+      redirect_to login_url
+    end
+  end
+
 
   # GET /users
   # GET /users.json

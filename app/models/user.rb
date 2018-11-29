@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   audited
   has_many :servers
-  has_many :requests
+  has_many :modifications
   has_secure_password
   validates :password_digest, presence: true
   validates :password, length: { minimum: 4 }

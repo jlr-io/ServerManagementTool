@@ -3,11 +3,14 @@
   <div class="row">
     <div class="col-md-4">
       <div class="well">
-      <% if current_user.admin %>
-      <h2><strong>Admin Info</strong></h2>
+      <h2><strong>General</strong></h2>
         <p>
-          <strong>User:</strong>
+          <strong>User id:</strong>
           <%= @server.user_id %>
+        </p>
+           <p>
+          <strong>Server id:</strong>
+          <%= @server.id %>
         </p>
 
         <p>
@@ -19,13 +22,14 @@
           <strong>Asset:</strong>
           <%= @server.asset %>
         </p>
-        <p>
-          ---
-        </p>
-        <p>
-          ---
-        </p>
-      <% end %>
+        <strong>Line of business:</strong>
+          <%= @server.line_of_business %>
+          </p>
+
+          <p>
+            <strong>Virtual machine:</strong>
+            <%= @server.virtual_machine %>
+            </p>
       </div>
     </div>
     <div class="col-md-4">
@@ -114,23 +118,53 @@
     </div>
   </div>
 </div>
-        
+<% unless @server.system.nil? %>
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-8">
       <div class="well">
-        <p>
-          <strong>Line of business:</strong>
-          <%= @server.line_of_business %>
-          </p>
-
+        <h2><strong>Server's System</strong></h2>
+        <div class="col-md-4">
           <p>
-            <strong>Virtual machine:</strong>
-            <%= @server.virtual_machine %>
+            <strong>System:</strong>
+            <%= @system.system %>
             </p>
+
+            <p>
+              <strong>Machine:</strong>
+              <%= @system.machine %>
+              </p>
+            <p>
+              <strong>Cpu:</strong>
+              <%= @system.cpu %>
+            </p>
+            <p>
+              <strong>Graphics:</strong>
+              <%= @system.graphics %>
+            </p>
+          </div>
+          <div class="col-md-4">
+            <p>
+              <strong>Drives:</strong>
+              <%= @system.drives %>
+            </p>
+            <p>
+              <strong>Ip:</strong>
+              <%= @system.ip %>
+            </p>
+            <p>
+              <strong>Boot Time:</strong>
+              <%= @system.boot_time %>
+            </p>
+            <p>
+              <strong>Last Update:</strong>
+              <%= @system.date %>
+            </p>
+          </div>
       </div>
     </div>
   </div>
 </div>
+<% end %>
 <strong><%= link_to 'Edit', edit_server_path(@server) %> |
 <%= link_to 'Back', servers_path %> </strong>
