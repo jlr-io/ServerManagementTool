@@ -12,7 +12,7 @@
 
   <div class="jumbotron">
       <div class="container">
-        <h1 class="dashboard">Dashboard!</h1>
+        <h1 class="dashboard">Dashboard</h1>
         <p id="notice"><%= notice %></p>
       </div>
     </div>
@@ -29,7 +29,7 @@
 
 
             for (var s = 0; s < linedata.length; s++) {
-              if (linedata[s].approved = true) {
+              if (linedata[s].approved == true) {
                 linedata[s].created_at = linedata[s].created_at.substring(0, linedata[s].created_at.indexOf('T'));
               }
               
@@ -37,7 +37,6 @@
             var date = [];
             var count = [];
             var num = 0;
-
             for (var i = 0; i < linedata.length; i++)
             {
               if (date.length == 0) {
@@ -50,27 +49,28 @@
                 num = 1;
               }
               else {
-                var linecheck = 0;
-                for (var j = 0; j < date.length; j++) {
-                  if (date[j] == linedata[i].created_at)
-                  {
-                    linecheck = 1;
-                  }
-
-                  if (linecheck == 0 && j == date.length - 1) {
-                    date.push(linedata[i].created_at);
-                    count.push(num);
-                    num++;
-                  }
-
-                  if (linecheck == 1 && j == date.length - 1)
-                  {
-                    for (var k = 0; k < date.length; k++)
+                if (linedata[i].approved == true) {
+                  var linecheck = 0;
+                  for (var j = 0; j < date.length; j++) {
+                    if (date[j] == linedata[i].created_at)
                     {
-                      if (date[k] == linedata[i].created_at)
+                      linecheck = 1;
+                    }
+
+                    if (linecheck == 0 && j == date.length - 1) {
+                      date.push(linedata[i].created_at);
+                      count.push(num);
+                    }
+
+                    if (linecheck == 1 && j == date.length - 1)
+                    {
+                      for (var k = 0; k < date.length; k++)
                       {
-                        count[k]++;
-                        num++;
+                        if (date[k] == linedata[i].created_at)
+                        {
+                          count[k]++;
+                          num++;
+                        }
                       }
                     }
                   }
@@ -89,15 +89,15 @@
                 }]
               },
               options: {
-    scales: {
-        yAxes: [{
-            ticks: {
-                beginAtZero: true
+                scales: {
+                  yAxes: [{
+                    ticks: {
+                      beginAtZero: true
+                    }
+                  }]
+                }
             }
-        }]
-    }
-}
-            });
+          });
           </script>
        </div>
         <div class="col-md-6">
@@ -144,8 +144,6 @@
           }
           var names = [];
           var counts = [];
-          console.log(data);
-          console.log(os);
           for (var i = 0; i < os.length;i++)
           {
             names.push(os[i].name);
