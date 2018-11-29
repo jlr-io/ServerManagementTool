@@ -16,13 +16,10 @@ Rails.application.routes.draw do
   get 'servers/index', to: 'servers#index'
   get '/approved', to: 'servers#approved'
   get '/pending', to: 'servers#pending'
-<<<<<<< HEAD
   get '/create', to: 'servers#new'
   get '/ticket', to: 'tickets#new'
-=======
   get '/server', to: 'server#new'
   
   get '/system', to: 'system#new'
->>>>>>> 0af6b5665b351c982abcdf479e316e668eab7d55
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -94,6 +94,10 @@ class TicketsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ticket_params
-      params.require(:ticket).permit(@current_user.id, :server_id, :modification_type, :comments)
+      if (current_user.admin)
+        params.require(:ticket).permit(@current_user.id, :server_id, :modification_type, :comments)
+      else
+        params.require(:ticket).permit(@current_user.id, :server_id, :modification_type, :comments)
+      end
     end
 end

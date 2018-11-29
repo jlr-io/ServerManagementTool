@@ -2,7 +2,6 @@ class ServersController < ApplicationController
   before_action :set_server, only: [:show, :edit, :update, :destroy]
   before_action :logged_in_user, only: [:index, :show, :edit, :update, :destroy]
   before_action :is_admin, only: [:edit, :update, :destroy]
-<<<<<<< HEAD
   # GET /servers
   # GET /servers.json
   
