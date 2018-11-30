@@ -5,5 +5,9 @@ class Server < ApplicationRecord
     
     #validates :id, presence: true, uniqueness: true
     validates :user_id, presence: true
+    validates :hostname, presence: true
+    
+    def self.approved
+    end
 end
 

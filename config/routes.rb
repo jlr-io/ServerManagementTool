@@ -12,15 +12,25 @@ Rails.application.routes.draw do
   get '/login',     to: 'sessions#new'
   post '/login',    to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
+  
   get '/dashboard',  to: 'dashboard#index'
-  get 'servers/index', to: 'servers#index'
+  
+  post '/search', to: 'servers#search'
+  post '/user_search', to: 'users#search'
+  post '/approved_search', to: 'servers#approved_search'
+  
   get '/approved', to: 'servers#approved'
   get '/pending', to: 'servers#pending'
+
   get '/create', to: 'servers#new'
   get '/ticket', to: 'tickets#new'
+  
   get '/server', to: 'server#new'
+  get '/servers', to: 'servers#index'
+  
   get '/accepted', to: 'tickets#accepted'
   get '/unaccepted', to: 'tickets#unaccepted'
+  
   get '/system', to: 'system#new'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

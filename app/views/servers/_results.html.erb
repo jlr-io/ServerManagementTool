@@ -1,0 +1,38 @@
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Status</th>
+      <th>Asset</th>
+      <th>Hostname</th>
+      <th>Os requested</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @servers.each do |server| %>
+      <tr>
+          <td><%= server.user_id %></td>
+          <% if server.approved %>
+              <% status = "Approved" %>
+          <% else %>
+              <% status = "Pending" %>
+          <% end %>
+          <td><%= status %></td>
+          <td><%= server.asset %></td>
+          <td><%= server.hostname %></td>
+          <td><%= server.os_requested %></td>
+          <td><%= link_to 'Show', server, class: "btn btn-default" %></td>
+          <% if current_user.admin %>
+            <td><%= link_to 'Edit', edit_server_path(server), class:"btn btn-default" %></td>
+            <td><%= link_to 'Destroy', server, method: :delete, class: "btn btn-default", data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Server', new_server_path, class: "btn btn-default" %>

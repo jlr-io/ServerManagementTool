@@ -27,11 +27,20 @@ class UsersController < ApplicationController
     end
   end
 
+  def search
+    username = params[:search] + '%'
+    @users = User.where(['username LIKE ?', username])
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+
 
   # GET /users
   # GET /users.json
   def index
-    @users = User.where(["username LIKE ?", "%#{params[:search]}%"])
+    @users = User.all
   end
   
   # GET /users/1

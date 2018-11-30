@@ -28,18 +28,34 @@ class ServersController < ApplicationController
     end
   end
   
-  
+  def search
+    hostname = params[:search] + '%'
+    @servers = Server.where(['hostname LIKE ?', hostname])
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
   
   def index
       @servers = Server.all
   end
   
-  def approved
-      @servers = Server.where(["hostname LIKE ?", "%#{params[:search]}%"])
+  def pending
+    @servers = Server.where(["hostname LIKE ?", "%#{params[:search]}%"])
   end
   
-  def pending
-      @servers = Server.where(["hostname LIKE ?", "%#{params[:search]}%"])
+  def approved
+    @servers = Server.where(["hostname LIKE ?", "%#{params[:search]}%"])
+  end
+  
+  def approved_search
+     hostname = params[:search] + '%'
+    @servers = Server.where(['hostname LIKE ?', hostname])
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
   
   # GET /servers/1

@@ -11,10 +11,14 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require Chart.min
 //= require jquery
+//= require bootstrap
 //= require jquery_ujs
-//= require bootstrap.min
-//= require activestorage
 //= require turbolinks
 //= require_tree .
+/*global $*/
+$(document).on('turbolinks:load',function() {
+    $('#search').on('keyup', function() {
+        $('#search_form').submit();
+    });
+});
