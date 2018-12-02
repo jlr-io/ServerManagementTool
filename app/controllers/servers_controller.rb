@@ -1,32 +1,10 @@
 class ServersController < ApplicationController
+  include UsersHelper
   before_action :set_server, only: [:show, :edit, :update, :destroy]
   before_action :logged_in_user, only: [:index, :show, :edit, :update, :destroy]
   before_action :is_admin, only: [:edit, :update, :destroy]
   # GET /servers
   # GET /servers.json
-  
-  def logged_in_user
-    unless logged_in?
-      store_location
-      flash[:danger] = "Please log in!"
-      redirect_to login_url
-    end
-  end
-
-  def is_admin
-    unless current_user.admin
-      flash[:danger] = "Admin page: not authorized."
-      redirect_to(root_url)
-    end
-  end
-  
-  def correct_user
-    @user = User.find(params[:id])
-    unless @user == current_user || correct_user.admin
-      flash[:danger] = "You are not authorized to do that!"
-      redirect_to(root_url)
-    end
-  end
   
   def search
     hostname = params[:search] + '%'
