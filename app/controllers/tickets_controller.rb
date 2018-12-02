@@ -1,30 +1,16 @@
 class TicketsController < ApplicationController
+  include UsersHelper
   before_action :set_ticket, only: [:show, :edit, :update, :destroy]
   before_action :logged_in_user, only: [:index, :show, :edit, :update, :destroy]
-  before_action :is_admin, only: [:edit, :update, :destroy]
-
- def logged_in_user
-    unless logged_in?
-      store_location
-      flash[:danger] = "Please log in!"
-      redirect_to login_url
-    end
+  before_action :is_admin, only: [:index]
+ 
+ def accepted
+   @tickets = Ticket.all
  end
-
-  def is_admin
-    unless current_user.admin
-      flash[:danger] = "Admin page: not authorized."
-      redirect_to(root_url)
-    end
-  end
-  
-  def correct_user
-    @user = User.find(params[:id])
-    unless @user == current_user || correct_user.admin
-      flash[:danger] = "You are not authorized to do that!"
-      redirect_to(root_url)
-    end
-  end
+ 
+ def unaccepted
+   @tickets = Ticket.all
+ end
  
   # GET /tickets
   # GET /tickets.json
@@ -95,9 +81,9 @@ class TicketsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def ticket_params
       if (current_user.admin)
-        params.require(:ticket).permit(@current_user.id, :server_id, :modification_type, :comments)
+        params.require(:ticket).permit(@current_user.id, :server_id, :ticket_type, :accepted, :complete, :comments)
       else
-        params.require(:ticket).permit(@current_user.id, :server_id, :modification_type, :comments)
+        params.require(:ticket).permit(@current_user.id, :server_id, :ticket_type, :comments)
       end
     end
 end

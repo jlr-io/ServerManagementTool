@@ -24,10 +24,10 @@
   </div>
 
   <div class="field">
-    <%= form.radio_button :modification_type, 'edit' %>
-    <%= label :modification_type, 'Edit', :value => 'edit' %>
-    <%= form.radio_button :modification_type, 'delete' %>
-    <%= label :modification_type, 'Delete', :value => 'delete' %>
+    <%= form.radio_button :ticket_type, 'edit' %>
+    <%= label :ticket_type, 'Edit', :value => 'edit' %>
+    <%= form.radio_button :ticket_type, 'delete' %>
+    <%= label :ticket_type, 'Delete', :value => 'delete' %>
   </div>
 
   <div class="field">
@@ -40,11 +40,12 @@
     <%= form.label :accepted %>
     <%= form.check_box :accepted, :class => "formcheckbox" %>
   </div>
-  
+  <% if @ticket.accepted %>
   <div class="field">
     <%= form.label :complete %>
     <%= form.check_box :complete, :class => "formcheckbox" %>
   </div>
+  <% end %>
 <% end %>
 
   <div class="actions">
