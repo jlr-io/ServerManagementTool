@@ -121,18 +121,18 @@
 <% unless @server.system.nil? %>
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-12">
       <div class="well">
         <h2><strong>Server's System</strong></h2>
-        <div class="col-md-4">
+        <div class="col-md-6">
           <p>
             <strong>System:</strong>
             <%= @system.system %>
             </p>
 
             <p>
-              <strong>Machine:</strong>
-              <%= @system.machine %>
+              <strong>Memory:</strong>
+              <%= @system.memory %>
               </p>
             <p>
               <strong>Cpu:</strong>
@@ -143,7 +143,7 @@
               <%= @system.graphics %>
             </p>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-6">
             <p>
               <strong>Drives:</strong>
               <%= @system.drives %>
@@ -158,7 +158,7 @@
             </p>
             <p>
               <strong>Last Update:</strong>
-              <%= @system.date %>
+              <%= @system.updated_at %>
             </p>
           </div>
       </div>
