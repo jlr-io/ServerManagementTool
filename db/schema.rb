@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_02_210044) do
+ActiveRecord::Schema.define(version: 2018_12_03_182239) do
 
   create_table "audits", force: :cascade do |t|
     t.integer "auditable_id"
@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 2018_12_02_210044) do
   create_table "systems", force: :cascade do |t|
     t.integer "server_id"
     t.string "system"
-    t.string "machine"
+    t.string "memory"
     t.string "cpu"
     t.string "graphics"
     t.string "drives"
