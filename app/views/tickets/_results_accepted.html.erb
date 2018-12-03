@@ -1,0 +1,35 @@
+<table>
+  <thead>
+    <tr>
+      <th>User: </th>
+      <th>Status: </th>
+      <th>Server: </th>
+      <th>Type: </th>
+      <th>Comments: </th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tickets.each do |ticket| %>
+      <tr>
+        <% if ticket.accepted && !ticket.complete %>
+          <td><%= ticket.user_id %></td>
+          <td><%= "Accepted" %></td>
+          <td><%= ticket.server_id %></td>
+          <td><%= ticket.ticket_type %> </td>
+          <td><%= ticket.comments %></td>
+          <td><%= link_to 'Show', ticket %></td>
+          <% if current_user.admin %>
+            <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
+            <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ticket', new_ticket_path %>

@@ -257,37 +257,7 @@ h1.modelsh1{
     border-bottom: 1px solid $gray-lighter;
   }
 }
-/* microposts */
-.microposts {
-  list-style: none;
-  padding: 0;
-  li {
-    padding: 10px 0;
-    border-top: 1px solid #e8e8e8;
-  }
-  .user {
-    margin-top: 5em;
-    padding-top: 0;
-  }
-  .content {
-    display: block;
-    margin-left: 60px;
-    img {
-      display: block;
-      padding: 5px 0;
-    }
-  }
-  .timestamp {
-    color: $gray-light;
-    display: block;
-    margin-left: 60px;
-  }
-  .gravatar {
-    float: left;
-    margin-right: 10px;
-    margin-top: 5px;
-  }
-}
+
 aside {
   textarea {
     height: 100px;
@@ -303,7 +273,7 @@ span.picture {
 
 li {
     float: left;
-    color: white;
+    color: black;
 }
 
 li a {
@@ -319,6 +289,7 @@ a:link {color: #1BA1DF;}      /* unvisited link */
 a:visited {color: #1BA1DF;}  /* visited link */
 a:hover {color: #1BA1DF;}  /* mouse over link */
 a:active {color: #1BA1DF;} 
+
 nav {
   background-color: #333;
   a {
@@ -333,7 +304,7 @@ h1 {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  background-color: #181818;
+  float: right;
 }
 
 .headerli {
@@ -385,37 +356,18 @@ table tfoot {
 tables tfoot td {
   font-size: 14px;
 }
-table {
-  border: 3px solid #000000;
-  text-align: left;
-  border-collapse: collapse;
+
+.comment_field {
+   width: 500px;
+   height: 200px;
+   resize: none;
 }
-table td, table th {
-  border: 1px solid #000000;
-  padding: 5px 4px;
+
+
+.radiobutton {
+   margin-left: 200px;
 }
-table tbody td {
-  font-size: 13px;
-}
-table thead {
-  background: #CFCFCF;
-  background: -moz-linear-gradient(top, #dbdbdb 0%, #d3d3d3 66%, #CFCFCF 100%);
-  background: -webkit-linear-gradient(top, #dbdbdb 0%, #d3d3d3 66%, #CFCFCF 100%);
-  background: linear-gradient(to bottom, #dbdbdb 0%, #d3d3d3 66%, #CFCFCF 100%);
-  border-bottom: 3px solid #000000;
-}
-table thead th {
-  font-size: 15px;
-  font-weight: bold;
-  color: #000000;
-  text-align: left;
-}
-table tfoot {
-  font-size: 14px;
-  font-weight: bold;
-  color: #000000;
-  border-top: 3px solid #000000;
-}
-tables tfoot td {
-  font-size: 14px;
+
+.radiobuttontext {
+  margin-left: -180px;
 }

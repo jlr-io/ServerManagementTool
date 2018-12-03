@@ -1,9 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>User:</strong>
-  <%= @ticket.user_id %>
-</p>
+<% if @ticket.accepted %>
+  <p>
+    <strong>Admin:</strong>
+    <%= @ticket.admin_id %>
+  </p>
+<% else %>
+  <p>
+    <strong>Employee:</strong>
+    <%= @ticket.user_id %>
+  </p>
+<% end %>
 
 <p>
   <strong>Server:</strong>
@@ -20,4 +27,8 @@
 </p>
 
 <%= link_to 'Edit', edit_ticket_path(@ticket) %> |
-<%= link_to 'Back', tickets_path %>
+<% if !current_user.admin %>
+  <%= link_to 'Back', dashboard_path %>
+<% else %>
+  <%= link_to 'Back', tickets_path %>
+<% end %>

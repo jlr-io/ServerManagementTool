@@ -5,34 +5,27 @@
 
       <ul>
       <% ticket.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+        <li><%= message %></li><br>
       <% end %>
       </ul>
     </div>
   <% end %>
-
-  <% if !current_user.admin %>
-    <div class="field">
-      <%= form.label :user_id %>
-      <%= form.text_field :user_id, value: @current_user.id, :class => 'text_field', :disabled => true %>
-    </div>
-  <% end %>
-
+  
   <div class="field">
     <%= form.label :server_id %>
     <%= form.number_field :server_id %>
   </div>
 
   <div class="field">
-    <%= form.radio_button :ticket_type, 'edit' %>
-    <%= label :ticket_type, 'Edit', :value => 'edit' %>
-    <%= form.radio_button :ticket_type, 'delete' %>
-    <%= label :ticket_type, 'Delete', :value => 'delete' %>
+    <%= form.radio_button :ticket_type, 'edit', :class => "radiobutton" %>
+    <%= label :ticket_type, 'Edit', :value => 'edit', :class => "radiobuttontext"%>
+    <%= form.radio_button :ticket_type, 'delete', :class => "radiobutton"  %>
+    <%= label :ticket_type, 'Delete', :value => 'delete', :class => "radiobuttontext" %>
   </div>
 
   <div class="field">
     <%= form.label :comments %>
-    <%= form.text_area :comments %>
+    <%= form.text_area :comments, class: 'comment_field' %>
   </div>
 
 <% if current_user.admin %>

@@ -7,7 +7,6 @@ class User < ApplicationRecord
   validates :password_digest, presence: true
   validates :password, length: { minimum: 4 }
   validates :username, uniqueness: true
-  validates :id, uniqueness: true
   validates :email, presence: true,
   uniqueness: { case_sensitive: false},
   length: { maximum: 255 },

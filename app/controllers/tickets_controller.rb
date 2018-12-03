@@ -4,13 +4,31 @@ class TicketsController < ApplicationController
   before_action :logged_in_user, only: [:index, :show, :edit, :update, :destroy]
   before_action :is_admin, only: [:index]
  
- def accepted
-   @tickets = Ticket.all
- end
  
- def unaccepted
-   @tickets = Ticket.all
- end
+def search
+  name = params[:search] + '%'
+  @tickets = Ticket.where(['comments LIKE ?', name])
+  respond_to do |format|
+    format.html
+    format.js
+  end
+end
+ 
+def accepted
+  @tickets = Ticket.where(["comments LIKE ?", "%#{params[:search]}%"])
+  respond_to do |format|
+    format.html
+    format.js
+  end
+end
+ 
+def unaccepted
+  @tickets = Ticket.where(["comments LIKE ?", "%#{params[:search]}%"])
+  respond_to do |format|
+    format.html
+    format.js
+  end
+end
  
   # GET /tickets
   # GET /tickets.json
@@ -52,7 +70,7 @@ class TicketsController < ApplicationController
   # PATCH/PUT /tickets/1.json
   def update
     respond_to do |format|
-      if @ticket.update(ticket_params)
+      if @ticket.update(ticket_params.merge(admin_id: current_user.id))
         format.html { redirect_to @ticket, notice: 'Ticket was successfully updated.' }
         format.json { render :show, status: :ok, location: @ticket }
       else
@@ -81,9 +99,9 @@ class TicketsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def ticket_params
       if (current_user.admin)
-        params.require(:ticket).permit(@current_user.id, :server_id, :ticket_type, :accepted, :complete, :comments)
+        params.require(:ticket).permit(:user_id, :admin_id, :server_id, :ticket_type, :accepted, :complete, :comments)
       else
-        params.require(:ticket).permit(@current_user.id, :server_id, :ticket_type, :comments)
+        params.require(:ticket).permit(:user_id, :server_id, :ticket_type, :comments)
       end
     end
 end
