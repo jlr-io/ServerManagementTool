@@ -13,12 +13,12 @@
   <tbody>
     <% @servers.each do |server| %>
       <tr>
-          <td><%= server.user_id %></td>
           <% if server.approved %>
-              <% status = "Approved" %>
+            <% status = "Approved" %>
           <% else %>
-              <% status = "Pending" %>
+            <% status = "Pending" %>
           <% end %>
+          <td><%= server.user_id %></td>
           <td><%= status %></td>
           <td><%= server.asset %></td>
           <td><%= server.hostname %></td>
