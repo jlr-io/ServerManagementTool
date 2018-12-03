@@ -16,10 +16,18 @@ end
  
 def accepted
   @tickets = Ticket.where(["comments LIKE ?", "%#{params[:search]}%"])
+  respond_to do |format|
+    format.html
+    format.js
+  end
 end
  
 def unaccepted
   @tickets = Ticket.where(["comments LIKE ?", "%#{params[:search]}%"])
+  respond_to do |format|
+    format.html
+    format.js
+  end
 end
  
   # GET /tickets

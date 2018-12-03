@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   post '/server_search', to: 'servers#search'
   post '/ticket_search', to: 'tickets#search'
   post '/user_search', to: 'users#search'
+  post '/accepted_search', to: 'tickets#accepted'
+  post '/unaccepted_search', to: 'tickets#unaccepted'
   post '/approved_search', to: 'servers#approved_search'
   
   get '/approved', to: 'servers#approved'
