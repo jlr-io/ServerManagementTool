@@ -24,15 +24,15 @@
   </div>
 
   <div class="field">
-    <%= form.radio_button :ticket_type, 'edit' %>
-    <%= label :ticket_type, 'Edit', :value => 'edit' %>
-    <%= form.radio_button :ticket_type, 'delete' %>
-    <%= label :ticket_type, 'Delete', :value => 'delete' %>
+    <%= form.radio_button :ticket_type, 'edit', :class => "radiobutton" %>
+    <%= label :ticket_type, 'Edit', :value => 'edit', :class => "radiobuttontext"%>
+    <%= form.radio_button :ticket_type, 'delete', :class => "radiobutton"  %>
+    <%= label :ticket_type, 'Delete', :value => 'delete', :class => "radiobuttontext" %>
   </div>
 
   <div class="field">
     <%= form.label :comments %>
-    <%= form.text_area :comments %>
+    <%= form.text_area :comments, class: 'comment_field' %>
   </div>
 
 <% if current_user.admin %>

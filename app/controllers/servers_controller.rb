@@ -43,10 +43,18 @@ class ServersController < ApplicationController
   
   def pending
     @servers = Server.where(["hostname LIKE ?", "%#{params[:search]}%"])
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
   
   def approved
     @servers = Server.where(["hostname LIKE ?", "%#{params[:search]}%"])
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
   
   def approved_search
