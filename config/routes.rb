@@ -15,7 +15,8 @@ Rails.application.routes.draw do
   
   get '/dashboard',  to: 'dashboard#index'
   
-  post '/search', to: 'servers#search'
+  post '/server_search', to: 'servers#search'
+  post '/ticket_search', to: 'tickets#search'
   post '/user_search', to: 'users#search'
   post '/approved_search', to: 'servers#approved_search'
   

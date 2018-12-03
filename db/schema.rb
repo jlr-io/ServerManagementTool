@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_02_210044) do
+ActiveRecord::Schema.define(version: 2018_12_03_015957) do
 
   create_table "audits", force: :cascade do |t|
     t.integer "auditable_id"
@@ -88,10 +88,9 @@ ActiveRecord::Schema.define(version: 2018_12_02_210044) do
     t.text "comments"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "modification_type"
+    t.string "ticket_type"
     t.boolean "accepted"
     t.boolean "complete"
-    t.string "ticket_type"
   end
 
   create_table "tickets_users", id: false, force: :cascade do |t|

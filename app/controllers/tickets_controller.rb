@@ -4,13 +4,23 @@ class TicketsController < ApplicationController
   before_action :logged_in_user, only: [:index, :show, :edit, :update, :destroy]
   before_action :is_admin, only: [:index]
  
- def accepted
-   @tickets = Ticket.all
- end
  
- def unaccepted
-   @tickets = Ticket.all
- end
+def search
+  name = params[:search] + '%'
+  @tickets = Ticket.where(['comments LIKE ?', name])
+  respond_to do |format|
+    format.html
+    format.js
+  end
+end
+ 
+def accepted
+  @tickets = Ticket.where(["comments LIKE ?", "%#{params[:search]}%"])
+end
+ 
+def unaccepted
+  @tickets = Ticket.where(["comments LIKE ?", "%#{params[:search]}%"])
+end
  
   # GET /tickets
   # GET /tickets.json

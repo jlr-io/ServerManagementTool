@@ -20,4 +20,8 @@
 </p>
 
 <%= link_to 'Edit', edit_ticket_path(@ticket) %> |
-<%= link_to 'Back', tickets_path %>
+<% if !current_user.admin %>
+  <%= link_to 'Back', dashboard_path %>
+<% else %>
+  <%= link_to 'Back', tickets_path %>
+<% end %>
