@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_03_161648) do
+ActiveRecord::Schema.define(version: 2018_12_03_201023) do
 
   create_table "audits", force: :cascade do |t|
     t.integer "auditable_id"
@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 2018_12_03_161648) do
   create_table "systems", force: :cascade do |t|
     t.integer "server_id"
     t.string "system"
-    t.string "memory"
+    t.string "machine"
     t.string "cpu"
     t.string "graphics"
     t.string "drives"
@@ -87,9 +87,9 @@ ActiveRecord::Schema.define(version: 2018_12_03_161648) do
     t.text "comments"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "ticket_type"
     t.boolean "accepted"
     t.boolean "complete"
+    t.string "ticket_type"
     t.integer "user_id"
     t.integer "admin_id"
   end

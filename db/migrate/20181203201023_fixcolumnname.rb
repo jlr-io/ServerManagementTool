@@ -1,4 +1,4 @@
-class FixColumnName < ActiveRecord::Migration[5.2]
+class Fixcolumnname < ActiveRecord::Migration[5.2]
   def change
     rename_column :systems, :memory, :machine
   end
