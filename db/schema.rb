@@ -96,9 +96,9 @@ ActiveRecord::Schema.define(version: 2018_12_04_024346) do
     t.text "comments"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "ticket_type"
     t.boolean "accepted"
     t.boolean "complete"
-    t.string "ticket_type"
     t.integer "user_id"
     t.integer "admin_id"
   end
