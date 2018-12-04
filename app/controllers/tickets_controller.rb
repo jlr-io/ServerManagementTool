@@ -70,7 +70,7 @@ end
   # PATCH/PUT /tickets/1.json
   def update
     respond_to do |format|
-      if @ticket.update(ticket_params)
+      if @ticket.update(ticket_params.merge(admin_id: current_user.id))
         format.html { redirect_to @ticket, notice: 'Ticket was successfully updated.' }
         format.json { render :show, status: :ok, location: @ticket }
       else
@@ -99,9 +99,9 @@ end
     # Never trust parameters from the scary internet, only allow the white list through.
     def ticket_params
       if (current_user.admin)
-        params.require(:ticket).permit(@current_user.id, :server_id, :ticket_type, :accepted, :complete, :comments)
+        params.require(:ticket).permit(:user_id, :admin_id, :server_id, :ticket_type, :accepted, :complete, :comments)
       else
-        params.require(:ticket).permit(@current_user.id, :server_id, :ticket_type, :comments)
+        params.require(:ticket).permit(:user_id, :server_id, :ticket_type, :comments)
       end
     end
 end

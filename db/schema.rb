@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_03_015957) do
+ActiveRecord::Schema.define(version: 2018_12_04_024346) do
 
   create_table "audits", force: :cascade do |t|
     t.integer "auditable_id"
@@ -35,6 +35,12 @@ ActiveRecord::Schema.define(version: 2018_12_03_015957) do
   end
 
   create_table "database_structures", force: :cascade do |t|
+  end
+
+  create_table "demos", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "requests", force: :cascade do |t|
@@ -70,27 +76,31 @@ ActiveRecord::Schema.define(version: 2018_12_03_015957) do
 
   create_table "systems", force: :cascade do |t|
     t.integer "server_id"
-    t.string "system"
-    t.string "machine"
-    t.string "cpu"
-    t.string "graphics"
-    t.string "drives"
     t.string "ip"
     t.string "boot_time"
-    t.string "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "kernel"
+    t.string "platform"
+    t.string "model"
+    t.string "ncore"
+    t.string "cpu_model"
+    t.string "cpu_speed"
+    t.string "disk"
+    t.string "memory"
+    t.string "os"
   end
 
   create_table "tickets", force: :cascade do |t|
-    t.integer "user_id"
     t.integer "server_id"
     t.text "comments"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "ticket_type"
     t.boolean "accepted"
     t.boolean "complete"
+    t.string "ticket_type"
+    t.integer "user_id"
+    t.integer "admin_id"
   end
 
   create_table "tickets_users", id: false, force: :cascade do |t|

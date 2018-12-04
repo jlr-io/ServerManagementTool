@@ -34,7 +34,12 @@
       <%= form.text_field :user_id, value: @current_user.id, :class => 'text_field', :disabled => true %>
     </div>
   <% end %>
-
+  
+  <div class="field">
+    <%= form.label :id %>
+    <%= form.number_field :id %>
+  </div>
+  
   <div class="field">
     <%= form.label :hostname %>
     <%= form.text_field :hostname %>
