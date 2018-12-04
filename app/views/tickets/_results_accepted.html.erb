@@ -1,7 +1,8 @@
 <table>
   <thead>
     <tr>
-      <th>User: </th>
+      <th>User id: </th>
+      <th>Admin id: </th>
       <th>Status: </th>
       <th>Server: </th>
       <th>Type: </th>
@@ -15,6 +16,7 @@
       <tr>
         <% if ticket.accepted && !ticket.complete %>
           <td><%= ticket.user_id %></td>
+          <td><%= ticket.admin_id %></td>
           <td><%= "Accepted" %></td>
           <td><%= ticket.server_id %></td>
           <td><%= ticket.ticket_type %> </td>

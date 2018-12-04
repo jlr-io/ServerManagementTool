@@ -5,7 +5,8 @@
 <table>
   <thead>
     <tr>
-      <th>User: </th>
+      <th>User id: </th>
+      <th>Admin id: </th>
       <th>Status: </th>
       <th>Server: </th>
       <th>Ticket type: </th>
@@ -18,6 +19,7 @@
     <% @tickets.each do |ticket| %>
       <tr>
         <td><%= ticket.user_id %></td>
+        <td><%= ticket.admin_id %></td>
         <td>
           <% if ticket.accepted %>
             <%= "Accepted" %>

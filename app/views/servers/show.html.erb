@@ -126,36 +126,61 @@
         <h2><strong>Server's System</strong></h2>
         <div class="col-md-6">
           <p>
-            <strong></strong>
-            <%= @system.system %>
+            <strong>OS:</strong>
+            <%= @system.os %>
             </p>
             
-            <strong></strong>
-              <%= @system.cpu %>
+            <strong>Kernel:</strong>
+              <%= @system.kernel %>
             </p>
             
             <p>
-            <strong></strong>
-              <%= @system.graphics %>
+            <strong>Platform:</strong>
+              <%= @system.platform %>
             </p>
+            
+            <p>
+            <strong>Model:</strong>
+              <%= @system.model %>
+            </p>
+            
+            <p>
+            <strong>IP:</strong>
+              <%= @system.ip %>
+            </p>
+            
+            <p>
+              <strong>Boot Time:</strong>
+              <%= @system.boot_time %>
+            </p>
+            
           </div>
           <div class="col-md-6">
             <p>
-              <strong></strong>
-              <%= @system.drives %>
+              <strong>Memory:</strong>
+              <%= @system.memory %>
             </p>
+            
+             <p>
+              <strong>Disk:</strong>
+              <%= @system.disk %>
+            </p>
+            
+             <p>
+              <strong>Ncore:</strong>
+              <%= @system.ncore %>
+            </p>
+            
             <p>
-              ip:
-              <%= @system.ip %>
+              <strong>CPU Model:</strong>
+              <%= @system.cpu_model %>
             </p>
+          
             <p>
-              Boot Time:
-              <%= @system.boot_time %>
+              <strong>CPU Speed:</strong>
+              <%= @system.cpu_speed %>
             </p>
-            <p>
-              Last Update:
-              <%= @system.updated_at %>
-            </p>
+          
           </div>
       </div>
     </div>
