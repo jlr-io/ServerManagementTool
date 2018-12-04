@@ -25,6 +25,7 @@
           <% else %>
             <% status = "Pending" %>
           <% end %>
+          <% if current_user.admin || (current_user.id == server.user_id || server.approved) %>
           <td><%= server.user_id %></td>
           <td><%= status %></td>
           <td><%= server.asset %></td>
@@ -38,6 +39,7 @@
           <td><%= server.line_of_business %></td>
           <td><%= server.virtual_machine %></td>
           <td><%= link_to 'Show', server, class: "btn btn-default" %></td>
+          <% end %>
           <% if current_user.admin %>
             <td><%= link_to 'Edit', edit_server_path(server), class:"btn btn-default" %></td>
             <td><%= link_to 'Destroy', server, method: :delete, class: "btn btn-default", data: { confirm: 'Are you sure?' } %></td>

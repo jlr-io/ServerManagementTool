@@ -6,6 +6,7 @@
       <ul>
       <% user.errors.full_messages.each do |message| %>
         <li><%= message %></li>
+        <br>
       <% end %>
       </ul>
     </div>
@@ -38,7 +39,7 @@
   
   <div class="field">
     <%= form.label :email %>
-    <%= form.password_field :email %>
+    <%= form.text_field :email %>
   </div>
   
   <div class="actions">
