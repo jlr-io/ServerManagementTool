@@ -7,8 +7,8 @@ class ServersController < ApplicationController
   # GET /servers.json
   
   def search
-    hostname = params[:search] + '%'
-    @servers = Server.where(['hostname LIKE ?', hostname])
+    hostname = '%' + params[:search] + '%'
+    @servers = Server.where(['hostname LIKE ? OR asset LIKE ? OR location LIKE ? OR environment LIKE ? OR os_requested LIKE ? OR application_team_distro_group LIKE ? OR line_of_business LIKE ?', hostname, hostname, hostname, hostname, hostname, hostname, hostname])
     respond_to do |format|
       format.html
       format.js
@@ -20,7 +20,7 @@ class ServersController < ApplicationController
   end
   
   def pending
-    @servers = Server.where(["hostname LIKE ?", "%#{params[:search]}%"])
+    @servers = Server.where(["hostname LIKE ? OR asset LIKE ? OR location LIKE ? OR environment LIKE ? OR os_requested LIKE ? OR application_team_distro_group LIKE ? OR line_of_business LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%"])
     respond_to do |format|
       format.html
       format.js
@@ -28,7 +28,7 @@ class ServersController < ApplicationController
   end
   
   def approved
-    @servers = Server.where(["hostname LIKE ?", "%#{params[:search]}%"])
+    @servers = Server.where(["hostname LIKE ? OR asset LIKE ? OR location LIKE ? OR environment LIKE ? OR os_requested LIKE ? OR application_team_distro_group LIKE ? OR line_of_business LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%"])
     respond_to do |format|
       format.html
       format.js

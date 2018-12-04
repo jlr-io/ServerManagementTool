@@ -2,10 +2,16 @@
   <thead>
     <tr>
       <th>User</th>
-      <th>Status</th></th>
-      <th>Asset</th>
+      <th>Status</th>
       <th>Hostname</th>
-      <th>Os requested</th>
+      <th>Location</th>
+      <th>Environment</th>
+      <th>Os Requested</th>
+      <th>Disk Size</th>
+      <th>Application SME</th>
+      <th>Application Team Distro Group</th>
+      <th>Line of Business</th>
+      <th>Virtual Machine</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,12 +22,20 @@
         <% if !server.approved && (server.user_id == current_user.id || current_user.admin) %>
         <td><%= server.user_id %></td>
         <td><%= "Pending" %></td>
-        <td><%= server.asset %></td>
         <td><%= server.hostname %></td>
+        <td><%= server.location %></td>
+        <td><%= server.environment %></td>
         <td><%= server.os_requested %></td>
+        <td><%= server.disk_size %></td>
+        <td><%= server.application_sme_id %></td>
+        <td><%= server.application_team_distro_group %></td>
+        <td><%= server.line_of_business %></td>
+        <td><%= server.virtual_machine %></td>
         <td><%= link_to 'Show', server, class: "btn btn-default" %></td>
-        <td><%= link_to 'Edit', edit_server_path(server), class:"btn btn-default" %></td>
-        <td><%= link_to 'Destroy', server, method: :delete, class: "btn btn-default", data: { confirm: 'Are you sure?' } %></td>
+        <% if current_user.admin %>
+          <td><%= link_to 'Edit', edit_server_path(server), class:"btn btn-default" %></td>
+          <td><%= link_to 'Destroy', server, method: :delete, class: "btn btn-default", data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
         <% end %>
       </tr>
     <% end %>

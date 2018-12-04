@@ -6,8 +6,8 @@ class TicketsController < ApplicationController
  
  
 def search
-  name = params[:search] + '%'
-  @tickets = Ticket.where(['comments LIKE ?', name])
+  name = '%' + params[:search] + '%'
+  @tickets = Ticket.where(['ticket_type LIKE ? OR comments LIKE ?', name, name])
   respond_to do |format|
     format.html
     format.js
@@ -15,7 +15,7 @@ def search
 end
  
 def accepted
-  @tickets = Ticket.where(["comments LIKE ?", "%#{params[:search]}%"])
+  @tickets = Ticket.where(["ticket_type LIKE ? OR comments LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%"])
   respond_to do |format|
     format.html
     format.js
@@ -23,7 +23,7 @@ def accepted
 end
  
 def unaccepted
-  @tickets = Ticket.where(["comments LIKE ?", "%#{params[:search]}%"])
+  @tickets = Ticket.where(["ticket_type LIKE ? OR comments LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%"])
   respond_to do |format|
     format.html
     format.js
