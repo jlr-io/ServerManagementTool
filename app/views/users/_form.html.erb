@@ -12,20 +12,23 @@
     </div>
   <% end %>
   
-  <div class="field">
-    <%= form.label :id %>
-    <%= form.number_field :id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :username %>
-    <%= form.text_field :username %>
-  </div>
-
-  <div class="field">
-    <%= form.label :admin %>
-    <%= form.check_box :admin, :class => "formcheckbox" %>
-  </div>
+ <% if current_user.admin %>
+ 
+    <div class="field">
+      <%= form.label :username %>
+      <%= form.text_field :username %>
+    </div>
+  
+     <div class="field">
+      <%= form.label :id %>
+      <%= form.number_field :id %>
+    </div>
+  
+    <div class="field">
+      <%= form.label :admin %>
+      <%= form.check_box :admin, :class => "formcheckbox" %>
+    </div>
+  <% end %>
 
   <div class="field">
     <%= form.label :password %>

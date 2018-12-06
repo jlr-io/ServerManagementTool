@@ -33,6 +33,9 @@
       </div>
     </div>
   </div>
+  <strong><%= link_to 'Edit', edit_user_path(@user) %></strong>
+<% if current_user.admin %>
+  <%= link_to 'Back', users_path %></strong>
+<% end %>
+
 </div>
-<strong><%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %></strong>

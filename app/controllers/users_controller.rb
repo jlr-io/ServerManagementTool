@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   include UsersHelper
   before_action :logged_in_user, only: [:index, :show, :edit, :update, :destroy]
-  before_action :is_admin, only:[:index,:show, :edit, :update, :destroy]
+  before_action :correct_user, only: [:show, :edit]
+  before_action :is_admin, only:[:index, :update, :destroy]
   
 
   def search
@@ -55,6 +56,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    @user = User.find(params[:id])
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
