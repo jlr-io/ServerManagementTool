@@ -3,4 +3,7 @@
 <%= render 'form', user: @user %>
 
 <%= link_to 'Show', @user, class: 'newuserpadding'%> |
-<%= link_to 'Back', users_path, {:style=>'font-size: 20px;'} %>
+
+<% if current_user.admin %>
+    <%= link_to 'Back', login_path, {:style=>'font-size: 20px;'} %>
+<% end %>

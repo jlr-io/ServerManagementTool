@@ -4,9 +4,6 @@ Rails.application.routes.draw do
   resources :systems
   resources :users
   
-  
-  get '/admin',    to: 'static_pages#admin'
-  get '/employee',  to: 'static_pages#employee'
   root 'sessions#new'  
   
   get '/login',     to: 'sessions#new'
@@ -33,6 +30,8 @@ Rails.application.routes.draw do
   
   get '/accepted', to: 'tickets#accepted'
   get '/unaccepted', to: 'tickets#unaccepted'
+  
+  get '/user', to: 'users#show'
   
   get '/system', to: 'system#new'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
