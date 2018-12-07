@@ -33,6 +33,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    @user = User.edit
   end
 
   # POST /users
