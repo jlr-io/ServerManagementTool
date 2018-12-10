@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2018_12_04_024346) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "audits", force: :cascade do |t|
     t.integer "auditable_id"
     t.string "auditable_type"
@@ -39,15 +42,6 @@ ActiveRecord::Schema.define(version: 2018_12_04_024346) do
 
   create_table "demos", force: :cascade do |t|
     t.string "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "requests", force: :cascade do |t|
-    t.integer "user_id"
-    t.boolean "edit"
-    t.boolean "delete"
-    t.string "comments"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -89,23 +83,28 @@ ActiveRecord::Schema.define(version: 2018_12_04_024346) do
     t.string "disk"
     t.string "memory"
     t.string "os"
+    t.index ["server_id"], name: "systems_server_id_key", unique: true
   end
 
   create_table "tickets", force: :cascade do |t|
     t.integer "server_id"
+    t.boolean "edit_server"
+    t.boolean "delete_server"
     t.text "comments"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "ticket_type"
     t.boolean "accepted"
     t.boolean "complete"
-    t.integer "user_id"
+    t.string "ticket_type"
     t.integer "admin_id"
+    t.integer "user_id"
   end
 
   create_table "tickets_users", id: false, force: :cascade do |t|
-    t.integer "ticket_id", null: false
-    t.integer "user_id", null: false
+    t.bigint "ticket_id", null: false
+    t.bigint "user_id", null: false
+    t.index ["ticket_id", "user_id"], name: "index_tickets_users_on_ticket_id_and_user_id"
+    t.index ["user_id", "ticket_id"], name: "index_tickets_users_on_user_id_and_ticket_id"
   end
 
   create_table "users", force: :cascade do |t|
