@@ -96,7 +96,7 @@ class ServersController < ApplicationController
   # DELETE /servers/1.json
   def destroy
     @server.destroy
-    redirect_back(fallback_location:employee_path)
+    redirect_back(fallback_location:dashboard_path)
   end
 
   private
