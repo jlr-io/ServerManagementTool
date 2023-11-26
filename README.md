@@ -1,32 +1,3 @@
-
-
-
-
-
-Server Management Tool
-
-Blue Devil Developers: User Manual
-
-Ethan Buttery, Kyle DaRocha, Justin Inho
-
-Due Date: 12-13-18
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 (This manual assumes a CentOS 7 or RHEL 7.5 environment)
 
 Ruby on Rails Web Application:
@@ -63,10 +34,3 @@ View Dashboard.
 Search for, read, update, or delete servers (approved or pending).
 Search for, read, update, or delete tickets.
 Create, read, update, or delete users.
-* ...
-=======
-# ServerManagementTool
->>>>>>> 4430157976b7e179a0e6de2453e98d89ec8a91ac
-=======
-# ServerManagementTool
->>>>>>> 4430157976b7e179a0e6de2453e98d89ec8a91ac
